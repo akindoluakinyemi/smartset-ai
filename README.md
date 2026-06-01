@@ -424,13 +424,11 @@ The Streamlit dashboard includes:
 
 Potential future extensions:
 
-* Docker containerization
 * User authentication
 * Kafka streaming integration
 * Redis caching
 * Deep learning forecasting
 * WebSocket real-time updates
-* Cloud deployment
 * MLflow model tracking
 * Device clustering
 * Reinforcement-learning energy optimization
