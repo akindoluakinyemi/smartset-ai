@@ -9,8 +9,12 @@ from streamlit_autorefresh import st_autorefresh
 
 load_dotenv()
 
-DATABASE_URL = os.getenv("DATABASE_URL") or st.secrets.get("DATABASE_URL")
-MODEL_PATH = os.getenv("MODEL_PATH") or st.secrets.get("MODEL_PATH")
+try:
+    DATABASE_URL = os.getenv("DATABASE_URL") or st.secrets["DATABASE_URL"]
+    MODEL_PATH = os.getenv("MODEL_PATH") or st.secrets["MODEL_PATH"]
+except Exception:
+    st.error("Missing DATABASE_URL or MODEL_PATH. Add them in Streamlit Cloud secrets or local .env.")
+    st.stop()
 engine = create_engine(DATABASE_URL)
 
 st.set_page_config(page_title="SmartSet AI", layout="wide")
